@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -66,9 +68,19 @@ public class IndexController {
         User  user = new User();
         user.setNombre("Juan");
         user.setApellido("Lopez");
+        user.setEmail("juanlopez@gmail.com");
         model.addAttribute("usuario",user);
         model.addAttribute("titulo", "Perfil del usuario: ".concat(user.getNombre()));
         return "perfil";
+    }
+
+    @RequestMapping("/listar")
+    public String listar(Model model){
+        List<User> users = new ArrayList<>();
+        model.addAttribute("titulo", "Listado de Usuarios");
+        model.addAttribute("usuarios", users);
+
+        return "listar";
     }
 
 
