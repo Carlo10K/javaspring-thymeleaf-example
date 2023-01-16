@@ -6,6 +6,15 @@ public class User {
     private String apellido;
     private String email;
 
+    public User(String nombre, String apellido, String email) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+    }
+
+    public User() {
+    }
+
     public String getEmail() {
         return email;
     }

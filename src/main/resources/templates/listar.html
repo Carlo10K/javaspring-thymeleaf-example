@@ -10,7 +10,25 @@
 <body>
 <h1 th:text="${titulo}"></h1>
 
-<div th:if="${usuarios.size()==0}">No hay usuarios en el sistema</div>            <!-- if con funcion -->
+<div th:if="${usuarios.isEmpty()}">No hay usuarios en el sistema</div>            <!-- if con funcion -->
+
+<table th:if="${!usuarios.isEmpty()}">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each="usuario : ${usuarios}">
+        <td th:text="${usuario.nombre}">
+        <td th:text="${usuario.apellido}">
+        <td th:text="${usuario.email}">
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
