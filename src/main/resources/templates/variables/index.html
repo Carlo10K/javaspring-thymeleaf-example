@@ -1,0 +1,20 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+  <h1 th:text="${titulo}"></h1>
+  <ul>
+    <li><a th:href="@{/variables/string/} + 'Hola Juan'">/variables/string/Hola Juan</a></li>    <!--enviar variables por url -->
+    <li><a th:href="@{/variables/string/} + 'Hola Jhon'">/variables/string/Hola Jhon</a></li>
+    <li><a th:href="@{/variables/string/} + ${'Hola Pedro'} + '/' + ${'7'}">/variables/string/Hola Pedro/7</a></li> <!--enviar mas de 1 variable por url
+                                                                                                                        normalmente estos valores serian variables
+                                                                                                                        y las var van entre {} -->
+
+    <!-- <li><a th:href="@{/variables/string/} + 'Hola Pedro' + '/' + 7">/variables/string/Hola Pedro/7</a></li> --> <!--enviar mas de 1 variable por url sin variable-->
+
+  </ul>
+</body>
+</html>
