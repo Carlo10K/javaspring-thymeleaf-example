@@ -1,0 +1,18 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar parametros del request http GET - URL</title>
+</head>
+<body>
+  <h1>Enviar parametros del request http GET - URL</h1>
+</body>
+  <ul>
+    <li>
+      <a th:href="@{/params/string(txt='Hola Juan')}">/params/string?txt=Hola Juan</a>   <!-- para emviar la ruta en thymeleaf es con @ y no con $, y para enviar parametros es con ()-->
+    </li>
+    <li>
+      <a th:href="@{/params/string(txt='Hola Pedro')}">/params/string?txt=Hola Pedro</a>   <!-- para emviar la ruta en thymeleaf es con @ y no con $, y para enviar parametros es con ()-->
+    </li>
+  </ul>
+</html>
