@@ -14,5 +14,11 @@
     <li>
       <a th:href="@{/params/string(txt='Hola Pedro')}">/params/string?txt=Hola Pedro</a>   <!-- para emviar la ruta en thymeleaf es con @ y no con $, y para enviar parametros es con ()-->
     </li>
+    <li>
+      <a th:href="@{/params/mix-params(saludo='Hola buena tarde', numero=7)}">/params/mix-params?saludo=Hola buena tarde&numero=7</a>   <!-- para emviar la ruta en thymeleaf es con @ y no con $, y para enviar parametros es con ()-->
+    </li>
+    <li>
+      <a th:href="@{/params/mix-params-request(saludo='Hola buena tarde', numero=7)}">/params/mix-params-request?saludo=Hola buena tarde&numero=7</a>   <!-- para emviar la ruta en thymeleaf es con @ y no con $, y para enviar parametros es con ()-->
+    </li>
   </ul>
 </html>
