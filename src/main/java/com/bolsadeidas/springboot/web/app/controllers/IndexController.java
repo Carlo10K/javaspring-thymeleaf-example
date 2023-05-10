@@ -1,6 +1,7 @@
 package com.bolsadeidas.springboot.web.app.controllers;
 
 import com.bolsadeidas.springboot.web.app.models.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,18 @@ import java.util.Map;
 @Controller
 @RequestMapping("/app")    //para una ruta general
 public class IndexController {
+
+    //para obtener cadenas de texto del application.properties o de otro archivo properties
+    @Value("${texto.indexController.index.titulo}")
+    private String titulo;
+
+    @Value("${texto.indexController.perfil.titulo}")
+    private String textoPerfil;
+
+    @Value("${texto.indexController.listar.titulo}")
+    private String textoListar;
+
+
     //Cualquiera de las formas responde con un template de thymeleaf a un get
 
     /*
@@ -61,7 +74,7 @@ public class IndexController {
 */
     @RequestMapping({"/","/index","/home"})
     public String index(Model model){
-        model.addAttribute("titulo","Hola spring con model");
+        model.addAttribute("titulo",titulo);
         return "index";
     }
 
@@ -72,7 +85,7 @@ public class IndexController {
         user.setApellido("Lopez");
         user.setEmail("juanlopez@gmail.com");
         model.addAttribute("usuario",user);
-        model.addAttribute("titulo", "Perfil del usuario: ".concat(user.getNombre()));
+        model.addAttribute("titulo", textoPerfil.concat(user.getNombre()));
         return "perfil";
     }
 
@@ -100,7 +113,7 @@ public class IndexController {
         model.addAttribute("usuarios", users);
         */
 
-        model.addAttribute("titulo","Listado de usuarios");
+        model.addAttribute("titulo",textoListar);
         return "listar";
     }
 
